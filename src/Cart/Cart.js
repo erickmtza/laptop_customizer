@@ -8,7 +8,7 @@ function Cart(props) {
             <div className="summary__option__value">{props.selected[key].name}</div>
             <div className="summary__option__cost">
               { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                  .format(props.selected[key].cost) }
+              .format(props.selected[key].cost) }
             </div>
         </div>
       )
