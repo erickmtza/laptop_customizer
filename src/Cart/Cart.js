@@ -2,15 +2,17 @@ import React from 'react';
 import '../App.css';
 
 function Cart(props) {
-    const summary = Object.keys(props.selected)
-          .map(key => <div className="summary__option" key={key}>
-            <div className="summary__option__label">{key}  </div>
+    const summary = Object.keys(props.selected).map(key => (
+        <div className="summary__option" key={key}>
+            <div className="summary__option__label">{key}</div>
             <div className="summary__option__value">{props.selected[key].name}</div>
             <div className="summary__option__cost">
               { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
                   .format(props.selected[key].cost) }
             </div>
-        </div>)
+        </div>
+      )
+    );
 
     const total = Object.keys(props.selected)
           .reduce((acc, curr) => acc + props.selected[curr].cost, 0);    
